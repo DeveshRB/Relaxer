@@ -7,7 +7,7 @@ const icon = document.getElementById('icon');
 const totalTime = 7500;
 const breatheTime = (totalTime/5)*2;
 const holdTime = totalTime/5;
-
+var audio = new Audio('OM.mp3');
 
 breatheAnimation();
 
@@ -15,6 +15,11 @@ icon.addEventListener('click',()=>{
     playSong();
     // breatheAnimation();
     // pauseSong();
+});
+icon.addEventListener('dblclick',()=>{
+    // playSong();
+    // breatheAnimation();
+    pauseSong();
 });
 
 
@@ -24,19 +29,21 @@ function playSong() {
     
     document.querySelector('i.fas').classList.remove('fa-play');
     document.querySelector('i.fas').classList.add('fa-pause');
-    var audio = new Audio('OM.mp3');
+ 
     audio.play();
   }
   
   // Pause song
-//   function pauseSong() {
+  function pauseSong() {
     
-//     document.querySelector('i.fas').classList.add('fa-play');
-//     document.querySelector('i.fas').classList.remove('fa-pause');
-//     var audio = new Audio('OM.mp3');
-//     audio.pause();
-//     audio.currentTime = 0;
-//   }
+    document.querySelector('i.fas').classList.add('fa-play');
+    document.querySelector('i.fas').classList.remove('fa-pause');
+    // var audio = new Audio('OM.mp3');
+    
+    audio.pause();
+    audio.currentTime = 0;
+   
+  }
 
 function breatheAnimation(){
     text.innerText = "Breathe In!";
