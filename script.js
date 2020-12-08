@@ -3,24 +3,26 @@ const text = document.getElementById('text');
 const circle = document.getElementById('circle');
 const pointer = document.getElementById('pointer-container');
 const icon = document.getElementById('icon');
+const audio = document.getElementById('audio');
 
 const totalTime = 7500;
 const breatheTime = (totalTime/5)*2;
 const holdTime = totalTime/5;
-var audio = new Audio('OM.mp3');
+
 
 breatheAnimation();
 
 icon.addEventListener('click',()=>{
+    audio.src = `OM.mp3`;
+    const playing = icon.classList.contains('fa-play');
+    if(playing){
     playSong();
-    // breatheAnimation();
-    // pauseSong();
-});
-icon.addEventListener('dblclick',()=>{
-    // playSong();
-    // breatheAnimation();
+    }
+    else{
     pauseSong();
+    }
 });
+
 
 
 // Function 
@@ -41,7 +43,7 @@ function playSong() {
     // var audio = new Audio('OM.mp3');
     
     audio.pause();
-    audio.currentTime = 0;
+    // audio.currentTime = 0;
    
   }
 
